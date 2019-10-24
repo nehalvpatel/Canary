@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftSerial",
+        "repositoryURL": "https://github.com/yeokm1/SwiftSerial.git",
+        "state": {
+          "branch": null,
+          "revision": "86625ee4148f9da55883ac57402742c2c919bfb1",
+          "version": "0.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
