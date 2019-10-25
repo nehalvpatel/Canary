@@ -18,6 +18,7 @@ struct IFTTT: ServiceHandler {
         let url = URL(string: "https://maker.ifttt.com/trigger/\(rule.action.event)/with/key/\(rule.action.key)")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
