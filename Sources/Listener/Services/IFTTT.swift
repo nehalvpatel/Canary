@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 struct IFTTT: ServiceHandler {
     static func handleAction(rule: Rule, call: Call, finish: @escaping (Result<Any, Error>) -> ()) {
