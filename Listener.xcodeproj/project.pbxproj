@@ -1,807 +1,730 @@
 // !$*UTF8*$!
 {
-   archiveVersion = "1";
-   objectVersion = "46";
-   objects = {
-      "Listener::Listener" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_24";
-         buildPhases = (
-            "OBJ_27",
-            "OBJ_29"
-         );
-         dependencies = (
-            "OBJ_31"
-         );
-         name = "Listener";
-         productName = "Listener";
-         productReference = "Listener::Listener::Product";
-         productType = "com.apple.product-type.tool";
-      };
-      "Listener::Listener::Product" = {
-         isa = "PBXFileReference";
-         path = "Listener";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Listener::ListenerPackageTests::ProductTarget" = {
-         isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_40";
-         buildPhases = (
-         );
-         dependencies = (
-            "OBJ_43"
-         );
-         name = "ListenerPackageTests";
-         productName = "ListenerPackageTests";
-      };
-      "Listener::ListenerTests" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_45";
-         buildPhases = (
-            "OBJ_48",
-            "OBJ_51"
-         );
-         dependencies = (
-            "OBJ_53",
-            "OBJ_54"
-         );
-         name = "ListenerTests";
-         productName = "ListenerTests";
-         productReference = "Listener::ListenerTests::Product";
-         productType = "com.apple.product-type.bundle.unit-test";
-      };
-      "Listener::ListenerTests::Product" = {
-         isa = "PBXFileReference";
-         path = "ListenerTests.xctest";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "Listener::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_34";
-         buildPhases = (
-            "OBJ_37"
-         );
-         dependencies = (
-         );
-         name = "ListenerPackageDescription";
-         productName = "ListenerPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "OBJ_1" = {
-         isa = "PBXProject";
-         attributes = {
-            LastSwiftMigration = "9999";
-            LastUpgradeCheck = "9999";
-         };
-         buildConfigurationList = "OBJ_2";
-         compatibilityVersion = "Xcode 3.2";
-         developmentRegion = "en";
-         hasScannedForEncodings = "0";
-         knownRegions = (
-            "en"
-         );
-         mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_18";
-         projectDirPath = ".";
-         targets = (
-            "Listener::Listener",
-            "Listener::SwiftPMPackageDescription",
-            "Listener::ListenerPackageTests::ProductTarget",
-            "Listener::ListenerTests",
-            "SwiftSerial::SwiftSerial",
-            "SwiftSerial::SwiftPMPackageDescription"
-         );
-      };
-      "OBJ_10" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_11"
-         );
-         name = "Tests";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_11" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_12",
-            "OBJ_13"
-         );
-         name = "ListenerTests";
-         path = "Tests/ListenerTests";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_12" = {
-         isa = "PBXFileReference";
-         path = "ListenerTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_13" = {
-         isa = "PBXFileReference";
-         path = "XCTestManifests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_14" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_15"
-         );
-         name = "Dependencies";
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_15" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_16",
-            "OBJ_17"
-         );
-         name = "SwiftSerial 0.1.1";
-         path = ".build/checkouts/SwiftSerial/Sources";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_16" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/home/pi/Listener/.build/checkouts/SwiftSerial/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_17" = {
-         isa = "PBXFileReference";
-         path = "SwiftSerial.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_18" = {
-         isa = "PBXGroup";
-         children = (
-            "Listener::Listener::Product",
-            "SwiftSerial::SwiftSerial::Product",
-            "Listener::ListenerTests::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_2" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_3",
-            "OBJ_4"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_22" = {
-         isa = "PBXFileReference";
-         path = "README.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_24" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_25",
-            "OBJ_26"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_25" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/Listener_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Listener";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_26" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/Listener_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Listener";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_27" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_28"
-         );
-      };
-      "OBJ_28" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_29" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_30"
-         );
-      };
-      "OBJ_3" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "NO";
-            DEBUG_INFORMATION_FORMAT = "dwarf";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            ENABLE_NS_ASSERTIONS = "YES";
-            GCC_OPTIMIZATION_LEVEL = "0";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1",
-               "DEBUG=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            ONLY_ACTIVE_ARCH = "YES";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE",
-               "DEBUG"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Debug";
-      };
-      "OBJ_30" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftSerial::SwiftSerial::Product";
-      };
-      "OBJ_31" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftSerial::SwiftSerial";
-      };
-      "OBJ_34" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_35",
-            "OBJ_36"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_35" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_36" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_37" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_38"
-         );
-      };
-      "OBJ_38" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_4" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "YES";
-            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            GCC_OPTIMIZATION_LEVEL = "s";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Release";
-      };
-      "OBJ_40" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_41",
-            "OBJ_42"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_41" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_42" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_43" = {
-         isa = "PBXTargetDependency";
-         target = "Listener::ListenerTests";
-      };
-      "OBJ_45" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_46",
-            "OBJ_47"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_46" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/ListenerTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "ListenerTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_47" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/ListenerTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "ListenerTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_48" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_49",
-            "OBJ_50"
-         );
-      };
-      "OBJ_49" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
-      };
-      "OBJ_5" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_6",
-            "OBJ_7",
-            "OBJ_10",
-            "OBJ_14",
-            "OBJ_18",
-            "OBJ_22"
-         );
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_50" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_51" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_52"
-         );
-      };
-      "OBJ_52" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftSerial::SwiftSerial::Product";
-      };
-      "OBJ_53" = {
-         isa = "PBXTargetDependency";
-         target = "Listener::Listener";
-      };
-      "OBJ_54" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftSerial::SwiftSerial";
-      };
-      "OBJ_55" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_56",
-            "OBJ_57"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_56" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/SwiftSerial_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwiftSerial";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwiftSerial";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_57" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Listener.xcodeproj/SwiftSerial_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwiftSerial";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SwiftSerial";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_58" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_59"
-         );
-      };
-      "OBJ_59" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
-      };
-      "OBJ_6" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         path = "Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_60" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_62" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_63",
-            "OBJ_64"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_63" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_64" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_65" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_66"
-         );
-      };
-      "OBJ_66" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_7" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_8"
-         );
-         name = "Sources";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_8" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_9"
-         );
-         name = "Listener";
-         path = "Sources/Listener";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_9" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
-         sourceTree = "<group>";
-      };
-      "SwiftSerial::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_62";
-         buildPhases = (
-            "OBJ_65"
-         );
-         dependencies = (
-         );
-         name = "SwiftSerialPackageDescription";
-         productName = "SwiftSerialPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwiftSerial::SwiftSerial" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_55";
-         buildPhases = (
-            "OBJ_58",
-            "OBJ_60"
-         );
-         dependencies = (
-         );
-         name = "SwiftSerial";
-         productName = "SwiftSerial";
-         productReference = "SwiftSerial::SwiftSerial::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwiftSerial::SwiftSerial::Product" = {
-         isa = "PBXFileReference";
-         path = "SwiftSerial.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-   };
-   rootObject = "OBJ_1";
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"Listener::ListenerPackageTests::ProductTarget" /* ListenerPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_40 /* Build configuration list for PBXAggregateTarget "ListenerPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_43 /* PBXTargetDependency */,
+			);
+			name = ListenerPackageTests;
+			productName = ListenerPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		C24AAC1A2362979600B60036 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC192362979600B60036 /* Phone.swift */; };
+		C24AAC1D236297DC00B60036 /* String+dictionaryByMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC1C236297DB00B60036 /* String+dictionaryByMatching.swift */; };
+		C24AAC1F2362980E00B60036 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC1E2362980E00B60036 /* Call.swift */; };
+		C24AAC212362981700B60036 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC202362981700B60036 /* Year.swift */; };
+		C24AAC232362981C00B60036 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC222362981C00B60036 /* Decoder.swift */; };
+		OBJ_28 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
+		OBJ_30 /* SwiftSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */; };
+		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_49 /* ListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ListenerTests.swift */; };
+		OBJ_50 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
+		OBJ_52 /* SwiftSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */; };
+		OBJ_59 /* SwiftSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* SwiftSerial.swift */; };
+		OBJ_66 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Package.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C24AAC122362974A00B60036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftSerial::SwiftSerial";
+			remoteInfo = SwiftSerial;
+		};
+		C24AAC132362974A00B60036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Listener::Listener";
+			remoteInfo = Listener;
+		};
+		C24AAC142362974A00B60036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftSerial::SwiftSerial";
+			remoteInfo = SwiftSerial;
+		};
+		C24AAC152362974C00B60036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Listener::ListenerTests";
+			remoteInfo = ListenerTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C24AAC192362979600B60036 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
+		C24AAC1C236297DB00B60036 /* String+dictionaryByMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dictionaryByMatching.swift"; sourceTree = "<group>"; };
+		C24AAC1E2362980E00B60036 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		C24AAC202362981700B60036 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		C24AAC222362981C00B60036 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		"Listener::Listener::Product" /* Listener */ = {isa = PBXFileReference; lastKnownFileType = text; path = Listener; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Listener::ListenerTests::Product" /* ListenerTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ListenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_12 /* ListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTests.swift; sourceTree = "<group>"; };
+		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /home/pi/Listener/.build/checkouts/SwiftSerial/Package.swift; sourceTree = "<group>"; };
+		OBJ_17 /* SwiftSerial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSerial.swift; sourceTree = "<group>"; };
+		OBJ_22 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		"SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftSerial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_30 /* SwiftSerial.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_52 /* SwiftSerial.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C24AAC162362977D00B60036 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				C24AAC192362979600B60036 /* Phone.swift */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		C24AAC172362978300B60036 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				C24AAC1E2362980E00B60036 /* Call.swift */,
+				C24AAC202362981700B60036 /* Year.swift */,
+				C24AAC222362981C00B60036 /* Decoder.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		C24AAC182362978700B60036 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C24AAC1C236297DB00B60036 /* String+dictionaryByMatching.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_10 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* ListenerTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_11 /* ListenerTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* ListenerTests.swift */,
+				OBJ_13 /* XCTestManifests.swift */,
+			);
+			name = ListenerTests;
+			path = Tests/ListenerTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_14 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_15 /* SwiftSerial 0.1.1 */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_15 /* SwiftSerial 0.1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* Package.swift */,
+				OBJ_17 /* SwiftSerial.swift */,
+			);
+			name = "SwiftSerial 0.1.1";
+			path = .build/checkouts/SwiftSerial/Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Listener::Listener::Product" /* Listener */,
+				"SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */,
+				"Listener::ListenerTests::Product" /* ListenerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_10 /* Tests */,
+				OBJ_14 /* Dependencies */,
+				OBJ_18 /* Products */,
+				OBJ_22 /* README.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C24AAC182362978700B60036 /* Extensions */,
+				C24AAC172362978300B60036 /* Call */,
+				C24AAC162362977D00B60036 /* Phone */,
+				OBJ_8 /* Listener */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* Listener */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* main.swift */,
+			);
+			name = Listener;
+			path = Sources/Listener;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"Listener::Listener" /* Listener */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "Listener" */;
+			buildPhases = (
+				OBJ_27 /* Sources */,
+				OBJ_29 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_31 /* PBXTargetDependency */,
+			);
+			name = Listener;
+			productName = Listener;
+			productReference = "Listener::Listener::Product" /* Listener */;
+			productType = "com.apple.product-type.tool";
+		};
+		"Listener::ListenerTests" /* ListenerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_45 /* Build configuration list for PBXNativeTarget "ListenerTests" */;
+			buildPhases = (
+				OBJ_48 /* Sources */,
+				OBJ_51 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_53 /* PBXTargetDependency */,
+				OBJ_54 /* PBXTargetDependency */,
+			);
+			name = ListenerTests;
+			productName = ListenerTests;
+			productReference = "Listener::ListenerTests::Product" /* ListenerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"Listener::SwiftPMPackageDescription" /* ListenerPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_34 /* Build configuration list for PBXNativeTarget "ListenerPackageDescription" */;
+			buildPhases = (
+				OBJ_37 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListenerPackageDescription;
+			productName = ListenerPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftSerial::SwiftPMPackageDescription" /* SwiftSerialPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_62 /* Build configuration list for PBXNativeTarget "SwiftSerialPackageDescription" */;
+			buildPhases = (
+				OBJ_65 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSerialPackageDescription;
+			productName = SwiftSerialPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftSerial::SwiftSerial" /* SwiftSerial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_55 /* Build configuration list for PBXNativeTarget "SwiftSerial" */;
+			buildPhases = (
+				OBJ_58 /* Sources */,
+				OBJ_60 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSerial;
+			productName = SwiftSerial;
+			productReference = "SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Listener" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"Listener::Listener" /* Listener */,
+				"Listener::SwiftPMPackageDescription" /* ListenerPackageDescription */,
+				"Listener::ListenerPackageTests::ProductTarget" /* ListenerPackageTests */,
+				"Listener::ListenerTests" /* ListenerTests */,
+				"SwiftSerial::SwiftSerial" /* SwiftSerial */,
+				"SwiftSerial::SwiftPMPackageDescription" /* SwiftSerialPackageDescription */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				C24AAC1D236297DC00B60036 /* String+dictionaryByMatching.swift in Sources */,
+				C24AAC1F2362980E00B60036 /* Call.swift in Sources */,
+				C24AAC212362981700B60036 /* Year.swift in Sources */,
+				C24AAC1A2362979600B60036 /* Phone.swift in Sources */,
+				C24AAC232362981C00B60036 /* Decoder.swift in Sources */,
+				OBJ_28 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_38 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_49 /* ListenerTests.swift in Sources */,
+				OBJ_50 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_59 /* SwiftSerial.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_66 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftSerial::SwiftSerial" /* SwiftSerial */;
+			targetProxy = C24AAC122362974A00B60036 /* PBXContainerItemProxy */;
+		};
+		OBJ_43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Listener::ListenerTests" /* ListenerTests */;
+			targetProxy = C24AAC152362974C00B60036 /* PBXContainerItemProxy */;
+		};
+		OBJ_53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Listener::Listener" /* Listener */;
+			targetProxy = C24AAC132362974A00B60036 /* PBXContainerItemProxy */;
+		};
+		OBJ_54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftSerial::SwiftSerial" /* SwiftSerial */;
+			targetProxy = C24AAC142362974A00B60036 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/Listener_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Listener;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/Listener_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Listener;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk / -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk / -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/ListenerTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ListenerTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/ListenerTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ListenerTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/SwiftSerial_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftSerial;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwiftSerial;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Listener.xcodeproj/SwiftSerial_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftSerial;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SwiftSerial;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk / -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk / -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "Listener" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_24 /* Build configuration list for PBXNativeTarget "Listener" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_34 /* Build configuration list for PBXNativeTarget "ListenerPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_35 /* Debug */,
+				OBJ_36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_40 /* Build configuration list for PBXAggregateTarget "ListenerPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_41 /* Debug */,
+				OBJ_42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_45 /* Build configuration list for PBXNativeTarget "ListenerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_46 /* Debug */,
+				OBJ_47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_55 /* Build configuration list for PBXNativeTarget "SwiftSerial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_56 /* Debug */,
+				OBJ_57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_62 /* Build configuration list for PBXNativeTarget "SwiftSerialPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_63 /* Debug */,
+				OBJ_64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
 }

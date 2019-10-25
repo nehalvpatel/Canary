@@ -9,30 +9,27 @@
 import Foundation
 import SwiftSerial
 
-print("Hello, World!")
+//let inputString: String = "  10/23 19:57  04:20:58 115   9   13125431294                 T075"
 
 let portName = "/dev/ttyUSB0"
-
-let serialPort = SerialPort(path: portName)
+let decoder = CallDecoder(year: .current(Calendar.current))
 
 do {
-    print("Attempting to open port: \(portName)")
-    try serialPort.openPort(toReceive: true, andTransmit: false)
-    print("Serial port \(portName) opened successfully.")
-    
+    let console: Phone = try Phone(portName, decoder: decoder)
+
     defer {
-        serialPort.closePort()
+        console.close()
         print("Port closed")
     }
     
-    serialPort.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
-    
-    let stringReceived = try serialPort.readLine()
-
-    print(stringReceived)
+    repeat {
+        let call = try console.nextCall()
+        print(call)
+    } while true
 } catch PortError.failedToOpen {
     print("Serial port \(portName) failed to open. You might need root permissions.")
+} catch PortError.deviceNotConnected {
+    print("Device disconnected.")
 } catch {
     print("Error: \(error)")
 }
-
