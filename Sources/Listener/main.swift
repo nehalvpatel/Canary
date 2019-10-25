@@ -9,25 +9,24 @@
 import Foundation
 import SwiftSerial
 
-//let inputString: String = "  10/23 19:57  04:20:58 115   9   13125431294                 T075"
-
-let portName = "/dev/ttyUSB0"
 let decoder = CallDecoder(year: .current(Calendar.current))
+let trigger = Rule.Trigger(phoneNumber: "999")
+let action = Rule.Action(service: .IFTTT, key: "", event: "emergency_called")
+let glossary = Rule.Glossary(unit: "Room", dictionary: ["0": "Office", "199": "Lobby", "238": "Laundry"])
+let rules: [Rule] = [Rule(place: "Budget Inn", trigger: trigger, action: action, glossary: glossary)]
+let console: Console = Console(portName: "/dev/ttyUSB0", rules: rules)
 
 do {
-    let console: Phone = try Phone(portName, decoder: decoder)
-
+    let connection: Phone = try Phone(console, decoder: decoder)
+    
     defer {
-        console.close()
+        connection.close()
         print("Port closed")
     }
     
-    repeat {
-        let call = try console.nextCall()
-        print(call)
-    } while true
+    try connection.listen()
 } catch PortError.failedToOpen {
-    print("Serial port \(portName) failed to open. You might need root permissions.")
+    print("Serial port \(console.portName) failed to open. You might need root permissions.")
 } catch PortError.deviceNotConnected {
     print("Device disconnected.")
 } catch {

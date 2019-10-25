@@ -26,6 +26,10 @@
 		C24AAC212362981700B60036 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC202362981700B60036 /* Year.swift */; };
 		C24AAC2423629B8F00B60036 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC192362979600B60036 /* Phone.swift */; };
 		C24AAC2623629BA300B60036 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC222362981C00B60036 /* Decoder.swift */; };
+		C24AAC2823629F1500B60036 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC2723629F1500B60036 /* Rule.swift */; };
+		C24AAC2B2362ACA300B60036 /* IFTTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC2A2362ACA300B60036 /* IFTTT.swift */; };
+		C24AAC2F2362AD3200B60036 /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC2E2362AD3200B60036 /* ServiceHandler.swift */; };
+		C24AAC312362B72D00B60036 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC302362B72D00B60036 /* Console.swift */; };
 		OBJ_28 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_30 /* SwiftSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */; };
 		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -73,6 +77,10 @@
 		C24AAC1E2362980E00B60036 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		C24AAC202362981700B60036 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		C24AAC222362981C00B60036 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		C24AAC2723629F1500B60036 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		C24AAC2A2362ACA300B60036 /* IFTTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFTTT.swift; sourceTree = "<group>"; };
+		C24AAC2E2362AD3200B60036 /* ServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
+		C24AAC302362B72D00B60036 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		"Listener::Listener::Product" /* Listener */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Listener; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Listener::ListenerTests::Product" /* ListenerTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ListenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* ListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTests.swift; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				C24AAC192362979600B60036 /* Phone.swift */,
+				C24AAC2723629F1500B60036 /* Rule.swift */,
+				C24AAC302362B72D00B60036 /* Console.swift */,
 			);
 			path = Phone;
 			sourceTree = "<group>";
@@ -136,6 +146,15 @@
 				C24AAC1C236297DB00B60036 /* String+dictionaryByMatching.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C24AAC292362AC8E00B60036 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C24AAC2A2362ACA300B60036 /* IFTTT.swift */,
+				C24AAC2E2362AD3200B60036 /* ServiceHandler.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Tests */ = {
@@ -212,6 +231,7 @@
 				C24AAC172362978300B60036 /* Call */,
 				C24AAC162362977D00B60036 /* Phone */,
 				C24AAC182362978700B60036 /* Extensions */,
+				C24AAC292362AC8E00B60036 /* Services */,
 			);
 			name = Listener;
 			path = Sources/Listener;
@@ -336,11 +356,15 @@
 			buildActionMask = 0;
 			files = (
 				C24AAC1D236297DC00B60036 /* String+dictionaryByMatching.swift in Sources */,
+				C24AAC312362B72D00B60036 /* Console.swift in Sources */,
+				C24AAC2B2362ACA300B60036 /* IFTTT.swift in Sources */,
 				C24AAC1F2362980E00B60036 /* Call.swift in Sources */,
 				C24AAC212362981700B60036 /* Year.swift in Sources */,
+				C24AAC2F2362AD3200B60036 /* ServiceHandler.swift in Sources */,
 				C24AAC2423629B8F00B60036 /* Phone.swift in Sources */,
 				C24AAC2623629BA300B60036 /* Decoder.swift in Sources */,
 				OBJ_28 /* main.swift in Sources */,
+				C24AAC2823629F1500B60036 /* Rule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

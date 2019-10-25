@@ -12,15 +12,24 @@ import SwiftSerial
 class Phone {
     let port: SerialPort
     let decoder: CallDecoder
+    let rules: [Rule]
     
-    init(_ port: String, decoder: CallDecoder) throws {
-        self.port = SerialPort(path: portName)
+    init(_ console: Console, decoder: CallDecoder) throws {
+        self.port = SerialPort(path: console.portName)
         self.decoder = decoder
+        self.rules = console.rules
         
-        print("Attempting to open port: \(portName)")
+        print("Attempting to open port: \(self.port)")
         try self.port.openPort(toReceive: true, andTransmit: false)
-        print("Serial port \(portName) opened successfully.")
+        print("Serial port \(self.port) opened successfully.")
         self.port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
+    }
+    
+    func listen() throws {
+        repeat {
+            let call = try self.nextCall()
+            self.handleCall(call)
+        } while true
     }
     
     func nextCall() throws -> Call {
@@ -34,6 +43,21 @@ class Phone {
         }
         
         return call!
+    }
+    
+    func handleCall(_ call: Call) {
+        for rule in rules.matching(call) {
+            let action = rule.action
+            
+            switch action.service {
+                case .IFTTT:
+                    IFTTT.handleAction(rule: rule, call: call) { result in
+                        if case .failure(let error) = result {
+                            print(error)
+                        }
+                    }
+            }
+        }
     }
     
     func close() {
