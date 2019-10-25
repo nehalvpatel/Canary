@@ -60,6 +60,12 @@
             ReferencedContainer = "container:Listener.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Users/nehalpatel/Library/Developer/Xcode/DerivedData/Listener-cgfkjuwznqkzuffnldpepoehalve/Build/Products/Debug/config.json"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

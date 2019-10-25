@@ -12,12 +12,13 @@ import SwiftSerial
 let decoder = CallDecoder(year: .current(Calendar.current))
 
 do {
-    let file: FileHandle? = FileHandle(forReadingAtPath: CommandLine.arguments[0])
-    let data = file?.readDataToEndOfFile()
-    file?.closeFile()
+    let url = URL(fileURLWithPath: CommandLine.arguments[1])
+    let file: FileHandle = try FileHandle(forReadingFrom: url)
+    let data = file.readDataToEndOfFile()
+    file.closeFile()
 
     let testDec = JSONDecoder()
-    let console = try testDec.decode(Console.self, from: data!)
+    let console = try testDec.decode(Console.self, from: data)
 
     let connection: Phone = try Phone(console, decoder: decoder)
     
