@@ -19,9 +19,9 @@ class Phone {
         self.decoder = decoder
         self.rules = console.rules
         
-        print("Attempting to open port: \(self.port)")
+        print("Attempting to open port: \(console.portName)")
         try self.port.openPort(toReceive: true, andTransmit: false)
-        print("Serial port \(self.port) opened successfully.")
+        print("Serial port \(console.portName) opened successfully.")
         self.port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
     }
     
