@@ -21,11 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C24AAC1A2362979600B60036 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC192362979600B60036 /* Phone.swift */; };
 		C24AAC1D236297DC00B60036 /* String+dictionaryByMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC1C236297DB00B60036 /* String+dictionaryByMatching.swift */; };
 		C24AAC1F2362980E00B60036 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC1E2362980E00B60036 /* Call.swift */; };
 		C24AAC212362981700B60036 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC202362981700B60036 /* Year.swift */; };
-		C24AAC232362981C00B60036 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC222362981C00B60036 /* Decoder.swift */; };
+		C24AAC2423629B8F00B60036 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC192362979600B60036 /* Phone.swift */; };
+		C24AAC2623629BA300B60036 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AAC222362981C00B60036 /* Decoder.swift */; };
 		OBJ_28 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_30 /* SwiftSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSerial::SwiftSerial::Product" /* SwiftSerial.framework */; };
 		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -73,7 +73,7 @@
 		C24AAC1E2362980E00B60036 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		C24AAC202362981700B60036 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		C24AAC222362981C00B60036 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
-		"Listener::Listener::Product" /* Listener */ = {isa = PBXFileReference; lastKnownFileType = text; path = Listener; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Listener::Listener::Product" /* Listener */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Listener; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Listener::ListenerTests::Product" /* ListenerTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ListenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* ListenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerTests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
@@ -200,9 +200,6 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C24AAC182362978700B60036 /* Extensions */,
-				C24AAC172362978300B60036 /* Call */,
-				C24AAC162362977D00B60036 /* Phone */,
 				OBJ_8 /* Listener */,
 			);
 			name = Sources;
@@ -212,6 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* main.swift */,
+				C24AAC172362978300B60036 /* Call */,
+				C24AAC162362977D00B60036 /* Phone */,
+				C24AAC182362978700B60036 /* Extensions */,
 			);
 			name = Listener;
 			path = Sources/Listener;
@@ -338,8 +338,8 @@
 				C24AAC1D236297DC00B60036 /* String+dictionaryByMatching.swift in Sources */,
 				C24AAC1F2362980E00B60036 /* Call.swift in Sources */,
 				C24AAC212362981700B60036 /* Year.swift in Sources */,
-				C24AAC1A2362979600B60036 /* Phone.swift in Sources */,
-				C24AAC232362981C00B60036 /* Decoder.swift in Sources */,
+				C24AAC2423629B8F00B60036 /* Phone.swift in Sources */,
+				C24AAC2623629BA300B60036 /* Decoder.swift in Sources */,
 				OBJ_28 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +414,7 @@
 				INFOPLIST_FILE = Listener.xcodeproj/Listener_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -439,7 +439,7 @@
 				INFOPLIST_FILE = Listener.xcodeproj/Listener_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
