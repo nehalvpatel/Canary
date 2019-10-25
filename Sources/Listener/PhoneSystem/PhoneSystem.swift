@@ -1,5 +1,5 @@
 //
-//  Phone.swift
+//  PhoneSystem.swift
 //  Listener
 //
 //  Created by Nehal Patel on 10/24/19.
@@ -14,14 +14,14 @@ class PhoneSystem {
     let decoder: CallDecoder
     let rules: [Rule]
     
-    init(_ console: Console, decoder: CallDecoder) throws {
-        self.port = SerialPort(path: console.portName)
+    init(_ config: Config, decoder: CallDecoder) throws {
+        self.port = SerialPort(path: config.portName)
         self.decoder = decoder
-        self.rules = console.rules
+        self.rules = config.rules
         
-        print("Attempting to open port: \(console.portName)")
+        print("Attempting to open port: \(config.portName)")
         try port.openPort(toReceive: true, andTransmit: false)
-        print("Serial port \(console.portName) opened successfully.")
+        print("Serial port \(config.portName) opened successfully.")
         port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
     }
     

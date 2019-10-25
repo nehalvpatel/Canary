@@ -11,16 +11,14 @@ struct Listener {
     let connection: PhoneSystem
     
     init(withConfigFrom configFilePath: String) throws {
-        let url = URL(fileURLWithPath: configFilePath)
-        let file: FileHandle = try FileHandle(forReadingFrom: url)
-        let data = file.readDataToEndOfFile()
-        file.closeFile()
+        let configFileURL = URL(fileURLWithPath: configFilePath)
+        let configFile: FileHandle = try FileHandle(forReadingFrom: configFileURL)
+        let configData = configFile.readDataToEndOfFile()
+        configFile.closeFile()
         
-        let testDec = JSONDecoder()
-        let console = try testDec.decode(Console.self, from: data)
-
+        let config = try JSONDecoder().decode(Config.self, from: configData)
         let decoder = CallDecoder(year: .current(Calendar.current))
-        connection = try PhoneSystem(console, decoder: decoder)
+        self.connection = try PhoneSystem(config, decoder: decoder)
     }
     
     func start() throws {
