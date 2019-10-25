@@ -27,7 +27,7 @@ class CallDecoder: Decoder {
     
     func container<Key>(keyedBy type: Key.Type) throws -> KeyedDecodingContainer<Key> where Key : CodingKey {
         // TODO: handle error
-        let groups = self.input.dictionaryByMatching(regex: #"(?<initiatedMonth>\d+)\/(?<initiatedDay>\d+)(?:\s+)(?<initiatedHour>\d+):(?<initiatedMinute>\d+)(?:\s+)(?<durationHours>\d+):(?<durationMinutes>\d+):(?<durationSeconds>\d+)(?:\s+)(?:ATT)?(?<callingNumber>\d+)(?:\s+)(?:\*)?(?<accessCode>\d+)(?:\s+)(?<dialedNumber>\d+)(?:\s+)T(?<trunkNumber>\d+)"#) ?? [:]
+        let groups = input.dictionaryByMatching(regex: #"(?<initiatedMonth>\d+)\/(?<initiatedDay>\d+)(?:\s+)(?<initiatedHour>\d+):(?<initiatedMinute>\d+)(?:\s+)(?<durationHours>\d+):(?<durationMinutes>\d+):(?<durationSeconds>\d+)(?:\s+)(?:ATT)?(?<callingNumber>\d+)(?:\s+)(?:\*)?(?<accessCode>\d+)(?:\s+)(?<dialedNumber>\d+)(?:\s+)T(?<trunkNumber>\d+)"#) ?? [:]
         
         if groups.count == 0 {
             throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "The input didn't match the Call regular expression."))
@@ -75,9 +75,9 @@ class CallDecoder: Decoder {
         
         func decode(_ type: Double.Type, forKey key: Key) throws -> Double {
             if key.stringValue == "duration" {
-                let seconds = Int(try self.group(named: "durationSeconds"))!
-                let minutes = Int(try self.group(named: "durationMinutes"))!
-                let hours = Int(try self.group(named: "durationHours"))!
+                let seconds = Int(try group(named: "durationSeconds"))!
+                let minutes = Int(try group(named: "durationMinutes"))!
+                let hours = Int(try group(named: "durationHours"))!
                 return Double(seconds + (minutes * 60) + (hours * 3600))
             }
             
@@ -131,10 +131,10 @@ class CallDecoder: Decoder {
         func decode(_ type: Date.Type, forKey key: Key) throws -> Date {
             if key.stringValue == "initiated" {
                 let year: Int = self.year.value()
-                let month: Int? = Int(try self.group(named: "initiatedMonth"))
-                let day: Int? = Int(try self.group(named: "initiatedDay"))
-                let hour: Int? = Int(try self.group(named: "initiatedHour"))
-                let minute: Int? = Int(try self.group(named: "initiatedMinute"))
+                let month: Int? = Int(try group(named: "initiatedMonth"))
+                let day: Int? = Int(try group(named: "initiatedDay"))
+                let hour: Int? = Int(try group(named: "initiatedHour"))
+                let minute: Int? = Int(try group(named: "initiatedMinute"))
                 
                 let components = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute, second: 0)
                 guard let date = Calendar.current.date(from: components) else {

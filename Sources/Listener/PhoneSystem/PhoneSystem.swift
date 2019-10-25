@@ -9,7 +9,7 @@
 import Foundation
 import SwiftSerial
 
-class Phone {
+class PhoneSystem {
     let port: SerialPort
     let decoder: CallDecoder
     let rules: [Rule]
@@ -20,25 +20,25 @@ class Phone {
         self.rules = console.rules
         
         print("Attempting to open port: \(console.portName)")
-        try self.port.openPort(toReceive: true, andTransmit: false)
+        try port.openPort(toReceive: true, andTransmit: false)
         print("Serial port \(console.portName) opened successfully.")
-        self.port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
+        port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
     }
     
     func listen() throws {
         repeat {
-            let call = try self.nextCall()
-            self.handleCall(call)
+            let call = try readCall()
+            handleCall(call)
         } while true
     }
     
-    func nextCall() throws -> Call {
+    func readCall() throws -> Call {
         var call: Call?
         
         while call == nil {
-            let line = try self.port.readLine()
+            let line = try port.readLine()
             print(line)
-            self.decoder.input = line
+            decoder.input = line
             call = try? Call(from: decoder)
         }
         
@@ -58,9 +58,5 @@ class Phone {
                     }
             }
         }
-    }
-    
-    func close() {
-        return self.port.closePort()
     }
 }

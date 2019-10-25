@@ -9,25 +9,22 @@
 import Foundation
 import SwiftSerial
 
-let decoder = CallDecoder(year: .current(Calendar.current))
-
 do {
-    let url = URL(fileURLWithPath: CommandLine.arguments[1])
-    let file: FileHandle = try FileHandle(forReadingFrom: url)
-    let data = file.readDataToEndOfFile()
-    file.closeFile()
-
-    let testDec = JSONDecoder()
-    let console = try testDec.decode(Console.self, from: data)
-
-    let connection: Phone = try Phone(console, decoder: decoder)
+    /// `arguments[1]` is going to be the string literal `--config-file`.
+    /// It's safe to hard-code this, because we only have one possible argument for now.
+    let configFilePath: String = CommandLine.arguments[2]
     
+    let listener = try Listener(withConfigFrom: configFilePath)
+    
+    /// Closes connection and ensures the port is released.
     defer {
-        connection.close()
-        print("Port closed")
+        listener.cleanup()
     }
     
-    try connection.listen()
+    /// Starts a loop which will parse incoming logs from the phone system, apply Rule predicates, and execute their actions.
+    /// This will only end in case of an error or the user pressing CTRL-C.
+    try listener.start()
+
 } catch PortError.failedToOpen {
     print("Serial port failed to open. You might need root permissions.")
 } catch PortError.deviceNotConnected {
