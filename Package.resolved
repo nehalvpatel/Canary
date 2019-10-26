@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "RegularExpressionDecoder",
+        "repositoryURL": "https://github.com/Flight-School/RegularExpressionDecoder.git",
+        "state": {
+          "branch": null,
+          "revision": "745d535b8cee97a3053b4b8f1fa2e7c4af838c97",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "SwiftSerial",
         "repositoryURL": "https://github.com/yeokm1/SwiftSerial.git",
         "state": {
