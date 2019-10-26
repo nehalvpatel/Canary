@@ -159,12 +159,12 @@
 		OBJ_10 /* PhoneSystem */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* Call.swift */,
-				OBJ_12 /* Config.swift */,
 				OBJ_13 /* PhoneSystem.swift */,
+				OBJ_12 /* Config.swift */,
+				OBJ_11 /* Call.swift */,
 				OBJ_14 /* Rule.swift */,
-				OBJ_15 /* Services */,
 				OBJ_18 /* Year.swift */,
+				OBJ_15 /* Services */,
 			);
 			path = PhoneSystem;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 		OBJ_8 /* Listener */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_19 /* main.swift */,
 				OBJ_9 /* Listener.swift */,
 				OBJ_10 /* PhoneSystem */,
-				OBJ_19 /* main.swift */,
 			);
 			name = Listener;
 			path = Sources/Listener;

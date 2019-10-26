@@ -42,7 +42,7 @@ class PhoneSystem {
         while call == nil {
             let line = try port.readLine()
             print(line.trimmingCharacters(in: .whitespacesAndNewlines))
-            call = try callDecoder.decode(Call.self, from: line)
+            call = try? callDecoder.decode(Call.self, from: line)
         }
         
         return call!
