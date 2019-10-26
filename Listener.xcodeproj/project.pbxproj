@@ -83,6 +83,13 @@
 			remoteGlobalIDString = "RegularExpressionDecoder::RegularExpressionDecoder";
 			remoteInfo = RegularExpressionDecoder;
 		};
+		C240398C236402CF0065FF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Listener::ListenerTests";
+			remoteInfo = ListenerTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -106,8 +113,6 @@
 		OBJ_32 /* UnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		OBJ_34 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /home/pi/Listener/.build/checkouts/SwiftSerial/Package.swift; sourceTree = "<group>"; };
 		OBJ_35 /* SwiftSerial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSerial.swift; sourceTree = "<group>"; };
-		OBJ_41 /* config.json.old */ = {isa = PBXFileReference; lastKnownFileType = file; path = config.json.old; sourceTree = "<group>"; };
-		OBJ_42 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		OBJ_43 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
@@ -251,8 +256,6 @@
 				OBJ_20 /* Tests */,
 				OBJ_24 /* Dependencies */,
 				OBJ_36 /* Products */,
-				OBJ_41 /* config.json.old */,
-				OBJ_42 /* config.json */,
 				OBJ_43 /* README.md */,
 			);
 			name = "";
@@ -510,7 +513,7 @@
 		OBJ_75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Listener::ListenerTests" /* ListenerTests */;
-			targetProxy = "Listener::ListenerTests" /* ListenerTests */;
+			targetProxy = C240398C236402CF0065FF2B /* PBXContainerItemProxy */;
 		};
 		OBJ_86 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
