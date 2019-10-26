@@ -26,6 +26,7 @@ class PhoneSystem {
         try port.openPort(toReceive: true, andTransmit: false)
         print("✅ Serial port \(config.portName) opened successfully.")
         port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
+        print()
     }
     
     func listen() throws {
