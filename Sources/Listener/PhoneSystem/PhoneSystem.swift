@@ -8,20 +8,23 @@
 
 import Foundation
 import SwiftSerial
+import RegularExpressionDecoder
 
 class PhoneSystem {
     let port: SerialPort
-    let decoder: CallDecoder
     let rules: [Rule]
+    let glossary: Config.Glossary
+    let callDecoder: CallDecoder
     
-    init(_ config: Config, decoder: CallDecoder) throws {
+    init(_ config: Config) throws {
         self.port = SerialPort(path: config.portName)
-        self.decoder = decoder
         self.rules = config.rules
+        self.glossary = config.glossary
+        self.callDecoder = try Call.makeDecoder()
         
-        print("Attempting to open port: \(config.portName)")
+        print("⌛ Attempting to open port: \(config.portName)")
         try port.openPort(toReceive: true, andTransmit: false)
-        print("Serial port \(config.portName) opened successfully.")
+        print("✅ Serial port \(config.portName) opened successfully.")
         port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
     }
     
@@ -37,26 +40,14 @@ class PhoneSystem {
         
         while call == nil {
             let line = try port.readLine()
-            print(line)
-            decoder.input = line
-            call = try? Call(from: decoder)
+            print(line.trimmingCharacters(in: .whitespacesAndNewlines))
+            call = try callDecoder.decode(Call.self, from: line)
         }
         
         return call!
     }
     
     func handleCall(_ call: Call) {
-        for rule in rules.matching(call) {
-            let action = rule.action
-            
-            switch action.service {
-                case .IFTTT:
-                    IFTTT.handleAction(rule: rule, call: call) { result in
-                        if case .failure(let error) = result {
-                            print(error)
-                        }
-                    }
-            }
-        }
+        rules.matching(call).forEach { $0.performActions(forCall: call, glossary: glossary) }
     }
 }

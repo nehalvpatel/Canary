@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftSerial
+import RegularExpressionDecoder
 
 do {
     /// `arguments[1]` is going to be the string literal `--config-file`.
@@ -22,11 +23,6 @@ do {
     /// Starts a loop which will receive call logs. It only ends in case of an error.
     /// It parses calls, applies rule predicates, and executes their actions.
     try listener.start()
-    
-} catch PortError.failedToOpen {
-    print("Serial port failed to open. You might need root permissions.")
-} catch PortError.deviceNotConnected {
-    print("Device disconnected.")
 } catch {
-    print("Error: \(error)")
+    Listener.handleError(error)
 }

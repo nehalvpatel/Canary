@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftSerial
+import RegularExpressionDecoder
 
 struct Listener {
     let connection: PhoneSystem
@@ -17,8 +19,7 @@ struct Listener {
         configFile.closeFile()
         
         let config = try JSONDecoder().decode(Config.self, from: configData)
-        let decoder = CallDecoder(year: .current(Calendar.current))
-        self.connection = try PhoneSystem(config, decoder: decoder)
+        self.connection = try PhoneSystem(config)
     }
     
     func start() throws {
@@ -27,6 +28,17 @@ struct Listener {
     
     func cleanup() {
         connection.port.closePort()
-        print("Port closed")
+        print("🛑 Port closed.")
+    }
+    
+    static func handleError(_ error: Error) {
+        switch error {
+            case PortError.failedToOpen:
+                print("⚠️ Serial port failed to open. You might need root permissions.")
+            case PortError.deviceNotConnected:
+                print("🔌 Device disconnected.")
+            default:
+                print("❗ \(type(of: error)): \(error)")
+        }
     }
 }

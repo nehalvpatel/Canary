@@ -11,11 +11,11 @@ import FoundationNetworking
 #endif
 
 struct IFTTT: ServiceHandler {
-    static func handleAction(rule: Rule, call: Call, finish: @escaping (Result<Any, Error>) -> ()) {
-        let values: [String:String] = ["value1": rule.message(call: call)]
+    static func execute(_ action: Rule.Action, message: String, call: Call, finish: @escaping (Result<Any, Error>) -> ()) {
+        let values: [String:String] = ["value1": message]
         let json = try? JSONSerialization.data(withJSONObject: values)
         
-        let url = URL(string: "https://maker.ifttt.com/trigger/\(rule.action.event)/with/key/\(rule.action.key)")!
+        let url = URL(string: "https://maker.ifttt.com/trigger/\(action.event)/with/key/\(action.key)")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = json
