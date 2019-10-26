@@ -24,32 +24,17 @@ struct Rule : Codable {
         let event: String
     }
     
-    let place: String
     let trigger: Trigger
     let actions: [Action]
 }
 
 extension Rule {
-    func message(for call: Call, glossary: Config.Glossary) -> String {
-        let suffix = "dialed \(call.dialedNumber) at \(place)."
-        
-        if let location = glossary.known[call.callingNumber] {
-            return "\(location) \(suffix)"
-        } else {
-            return "\(glossary.unit) \(call.callingNumber) \(suffix)"
-        }
-    }
-
     func performActions(forCall call: Call, glossary: Config.Glossary) {
         self.actions.forEach { action in
-            let message = self.message(for: call, glossary: glossary)
-            
             switch action.service {
                 case .IFTTT:
-                    IFTTT.execute(action, message: message, call: call) { result in
-                        if case .failure(let error) = result {
-                            print("⚠️ \(error)")
-                        }
+                    IFTTT.execute(action, call: call, caller: glossary.caller(for: call)) { result in
+                        if case .failure(let error) = result { Listener.handleError(error) }
                     }
             }
         }

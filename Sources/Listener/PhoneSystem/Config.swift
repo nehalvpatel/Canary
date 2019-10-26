@@ -11,10 +11,20 @@ import SwiftSerial
 struct Config : Codable {
     struct Glossary : Codable {
         let unit: String
-        let known: [PhoneNumber:String]
+        let phoneBook: [PhoneNumber:String]
     }
-    
+
     let portName: String
     let rules: [Rule]
     let glossary: Glossary
+}
+
+extension Config.Glossary {
+    func caller(for call: Call) -> String {
+        if let roomName = self.phoneBook[call.callingNumber] {
+            return roomName
+        } else {
+            return "\(self.unit) \(call.callingNumber)"
+        }
+    }
 }
