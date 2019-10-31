@@ -6,29 +6,38 @@
 //
 
 import Foundation
+import Commander
 import SwiftSerial
 import RegularExpressionDecoder
 
 struct Listener {
-    let connection: MitelConsole
+
+    static func parseArguments(handler: @escaping (String) throws -> ()) throws {
+        let configFileOption = Option<String>("config-file", default: "config.json", description: "The configuration file.")
+        let main = command(configFileOption, handler)
+        main.run()
+    }
     
-    init(withConfigFrom configFilePath: String) throws {
+    static func makeConnection(withConfigFrom configFilePath: String) throws -> MitelConsole {
         let configFileURL = URL(fileURLWithPath: configFilePath)
         let configFile: FileHandle = try FileHandle(forReadingFrom: configFileURL)
         let configData = configFile.readDataToEndOfFile()
         configFile.closeFile()
         
         let config = try JSONDecoder().decode(Config.self, from: configData)
-        self.connection = try MitelConsole(config)
+        return try MitelConsole(config)
     }
     
-    func start() throws {
+    static func startListening(with connection: MitelConsole) throws {
+        /// Ensures that the connection will be closed and the port is released.
+        defer {
+            connection.port.closePort()
+            print("🛑 Port closed.")
+        }
+
+        /// Starts a loop which will receive call logs. It only ends in case of an error.
+        /// It parses calls, applies rule predicates, and executes their actions.
         try connection.listen()
-    }
-    
-    func cleanup() {
-        connection.port.closePort()
-        print("🛑 Port closed.")
     }
     
     static func handleError(_ error: Error) {
