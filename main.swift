@@ -8,11 +8,11 @@
 
 import Foundation
 
-do {
-    try Listener.parseArguments() { configFilePath in
+Listener.parseArguments() { configFilePath in
+    do {
         let connection = try Listener.makeConnection(withConfigFrom: configFilePath)
         try Listener.startListening(with: connection)
+    } catch {
+        Listener.handleError(error)
     }
-} catch {
-    Listener.handleError(error)
 }
