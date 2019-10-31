@@ -10,7 +10,7 @@ import SwiftSerial
 import RegularExpressionDecoder
 
 struct Listener {
-    let connection: PhoneSystem
+    let connection: MitelConsole
     
     init(withConfigFrom configFilePath: String) throws {
         let configFileURL = URL(fileURLWithPath: configFilePath)
@@ -19,7 +19,7 @@ struct Listener {
         configFile.closeFile()
         
         let config = try JSONDecoder().decode(Config.self, from: configData)
-        self.connection = try PhoneSystem(config)
+        self.connection = try MitelConsole(config)
     }
     
     func start() throws {

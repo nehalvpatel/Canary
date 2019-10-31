@@ -1,5 +1,5 @@
 //
-//  PhoneSystem.swift
+//  MitelConsole.swift
 //  Listener
 //
 //  Created by Nehal Patel on 10/24/19.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftSerial
 import RegularExpressionDecoder
 
-class PhoneSystem {
+class MitelConsole {
     let port: SerialPort
     let rules: [Rule]
     let glossary: Config.Glossary
@@ -36,13 +36,28 @@ class PhoneSystem {
         } while true
     }
     
+    func trim(_ line: String) -> String {
+//        line.trimmingCharacters(in: .)
+        return line.trimmingCharacters(in: CharacterSet.init(charactersIn: "\r\n")).trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))
+    }
+    
+    func indicator(_ call: Call?) -> String {
+        return call != nil ? "🛎️" : "➡️"
+    }
+    
+    func output(_ line: String, call: Call?) {
+        if !trim(line).isEmpty {
+            print("\(indicator(call)) \(trim(line))")
+        }
+    }
+    
     func readCall() throws -> Call {
         var call: Call?
         
         while call == nil {
             let line = try port.readLine()
-            print(line.trimmingCharacters(in: .whitespacesAndNewlines))
             call = try? callDecoder.decode(Call.self, from: line)
+            output(line, call: call)
         }
         
         return call!
