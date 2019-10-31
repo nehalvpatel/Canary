@@ -14,8 +14,8 @@ struct Listener {
 
     static func parseArguments(handler: @escaping (String) -> ()) {
         let configFileOption = Option<String>("config-file", default: "config.json", description: "The configuration file.")
-        let main = command(configFileOption, handler)
-        main.run()
+        let commandPrompt = command(configFileOption, handler)
+        commandPrompt.run()
     }
     
     static func makeConnection(withConfigFrom configFilePath: String) throws -> MitelConsole {
