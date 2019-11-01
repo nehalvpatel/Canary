@@ -1,0 +1,26 @@
+{
+    "rules":[
+        {
+            "place":"Comfort Inn",
+            "trigger":{
+                "phoneNumber":"911"
+            },
+            "actions":[
+                {
+                    "service":"IFTTT",
+                    "key":"<insert Webhook API key>",
+                    "event":"emergency_called"
+                }
+            ]
+        }
+    ],
+    "glossary":{
+        "phoneBook":{
+            "199":"Lobby",
+            "238":"Laundry",
+            "ATT0":"Office"
+        },
+        "unit":"Room"
+    },
+    "portName":"\/dev\/ttyUSB0"
+}
