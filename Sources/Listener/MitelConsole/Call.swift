@@ -43,15 +43,15 @@ struct Call : Codable {
 }
 
 extension Call {
-    func initiatedAt(year: Year) -> Date {
-        let components = DateComponents(year: year.value(), month: initiatedMonth, day: initiatedDay, hour: initiatedHour, minute: initiatedMinute, second: 0)
-        return Calendar.current.date(from: components)!
-    }
-    
     var duration: TimeInterval {
         return Double(durationSeconds + (durationMinutes * 60) + (durationHours * 3600))
     }
     
+    func initiatedAt(year: Year) -> Date {
+        let components = DateComponents(year: year.value(), month: initiatedMonth, day: initiatedDay, hour: initiatedHour, minute: initiatedMinute, second: 0)
+        return Calendar.current.date(from: components)!
+    }
+
     static func makeDecoder() throws -> CallDecoder {
         let pattern: CallPattern = #"(?<\#(.initiatedMonth)>\d+)\/(?<\#(.initiatedDay)>\d+)(?:\s+)(?<\#(.initiatedHour)>\d+):(?<\#(.initiatedMinute)>\d+)(?:\s+)(?<\#(.durationHours)>\d+):(?<\#(.durationMinutes)>\d+):(?<\#(.durationSeconds)>\d+)(?:\s+)(?<\#(.callingNumber)>(?:ATT)?\d+)(?:\s+)(?:\*)?(?<\#(.accessCode)>\d+)(?:\s+)(?<\#(.dialedNumber)>\d+)(?:\s+)(?<\#(.trunk)>T\d+)"#
         return try CallDecoder(pattern: pattern)

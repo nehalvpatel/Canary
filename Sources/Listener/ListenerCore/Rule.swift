@@ -33,7 +33,7 @@ extension Rule {
         self.actions.forEach { action in
             switch action.service {
                 case .IFTTT:
-                    IFTTT.execute(action, call: call, caller: glossary.caller(for: call)) { result in
+                    IFTTT.execute(action, call: call, caller: glossary.callerID(for: call)) { result in
                         if case .failure(let error) = result { Listener.handleError(error) }
                     }
             }

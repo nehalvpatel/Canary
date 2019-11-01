@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C205BD0E236BB50A000D57A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205BD0D236BB50A000D57A0 /* Extensions.swift */; };
 		OBJ_105 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_116 /* ListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* ListenerTests.swift */; };
 		OBJ_117 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* XCTestManifests.swift */; };
@@ -109,9 +110,17 @@
 			remoteGlobalIDString = "Commander::Commander";
 			remoteInfo = Commander;
 		};
+		C205BD0C236B8194000D57A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Listener::ListenerTests";
+			remoteInfo = ListenerTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C205BD0D236BB50A000D57A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Listener::Listener::Product" /* Listener */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Listener; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Listener::ListenerTests::Product" /* ListenerTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ListenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +219,7 @@
 				OBJ_17 /* Call.swift */,
 				OBJ_18 /* MitelConsole.swift */,
 				OBJ_19 /* Year.swift */,
+				C205BD0D236BB50A000D57A0 /* Extensions.swift */,
 			);
 			path = MitelConsole;
 			sourceTree = "<group>";
@@ -623,6 +633,7 @@
 				OBJ_84 /* Rule.swift in Sources */,
 				OBJ_85 /* IFTTT.swift in Sources */,
 				OBJ_86 /* ServiceHandler.swift in Sources */,
+				C205BD0E236BB50A000D57A0 /* Extensions.swift in Sources */,
 				OBJ_87 /* Call.swift in Sources */,
 				OBJ_88 /* MitelConsole.swift in Sources */,
 				OBJ_89 /* Year.swift in Sources */,
@@ -636,7 +647,7 @@
 		OBJ_110 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Listener::ListenerTests" /* ListenerTests */;
-			targetProxy = "Listener::ListenerTests" /* ListenerTests */;
+			targetProxy = C205BD0C236B8194000D57A0 /* PBXContainerItemProxy */;
 		};
 		OBJ_122 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

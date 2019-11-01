@@ -36,18 +36,10 @@ class MitelConsole {
         } while true
     }
     
-    func trim(_ line: String) -> String {
-//        line.trimmingCharacters(in: .)
-        return line.trimmingCharacters(in: CharacterSet.init(charactersIn: "\r\n")).trimmingCharacters(in: CharacterSet.init(charactersIn: "\n"))
-    }
-    
-    func indicator(_ call: Call?) -> String {
-        return call != nil ? "🛎️" : "➡️"
-    }
-    
-    func output(_ line: String, call: Call?) {
-        if !trim(line).isEmpty {
-            print("\(indicator(call)) \(trim(line))")
+    func printLine(_ line: String, call: Call?) {
+        if !line.trimmed.isEmpty {
+            let indicator = call != nil ? "🛎️" : "➜"
+            print("\(indicator) \(line.trimmed)")
         }
     }
     
@@ -57,7 +49,7 @@ class MitelConsole {
         while call == nil {
             let line = try port.readLine()
             call = try? callDecoder.decode(Call.self, from: line)
-            output(line, call: call)
+            printLine(line, call: call)
         }
         
         return call!

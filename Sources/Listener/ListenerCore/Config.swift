@@ -20,7 +20,11 @@ struct Config : Codable {
 }
 
 extension Config.Glossary {
-    func caller(for call: Call) -> String {
+    /// Returns the Caller ID for a call.
+    ///
+    /// - Parameter call: Call to determine Caller ID for.
+    /// - Returns: The phone book entry matching the calling number, or else a generic in the format of (`unit` +  ` ` + `callingNumber`)
+    func callerID(for call: Call) -> String {
         if let roomName = self.phoneBook[call.callingNumber] {
             return roomName
         } else {
