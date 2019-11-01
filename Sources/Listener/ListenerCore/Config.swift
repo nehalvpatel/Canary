@@ -40,3 +40,14 @@ extension Config.Glossary {
         }
     }
 }
+
+extension Config {
+    static func makeConfigFromFile(path: String) throws -> Config {
+        let configFileURL = URL(fileURLWithPath: path)
+        let configFile: FileHandle = try FileHandle(forReadingFrom: configFileURL)
+        let configData = configFile.readDataToEndOfFile()
+        configFile.closeFile()
+        
+        return try JSONDecoder().decode(Config.self, from: configData)
+    }
+}

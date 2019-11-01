@@ -7,34 +7,39 @@
 //
 
 import Foundation
+import Combine
 import SwiftSerial
 import RegularExpressionDecoder
 
 class MitelConsole {
     let port: SerialPort
-    let rules: [Rule]
-    let glossary: Config.Glossary
     let callDecoder: CallDecoder
+    let callPublisher: CallPublisher
     
-    init(_ config: Config) throws {
-        self.port = SerialPort(path: config.portName)
-        self.rules = config.rules
-        self.glossary = config.glossary
+    init(portName: String) throws {
+        self.port = SerialPort(path: portName)
         self.callDecoder = try Call.makeDecoder()
+        self.callPublisher = CallPublisher()
         
-        print("⌛ Attempting to open port: \(config.portName)")
+        print("⌛ Attempting to open port: \(portName)")
         try port.openPort(toReceive: true, andTransmit: false)
-        print("✅ Serial port \(config.portName) opened successfully.")
+        print("✅ Serial port \(portName) opened successfully.")
         port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
         print()
     }
     
-    /// Starts scanning incomring data for calls.
+    /// Starts scanning incoming data for calls.
     func listen() throws {
-        repeat {
-            let call = try readCall()
-            handleCall(call)
-        } while true
+        DispatchQueue.global(qos: .userInitiated).async {
+            repeat {
+                do {
+                    let call = try self.readCall()
+                    self.callPublisher.send(call)
+                } catch {
+                    self.callPublisher.send(completion: Subscribers.Completion.failure(error))
+                }
+            } while true
+        }
     }
     
     /// Reads incoming data and returns a `Call` when one is identified.
@@ -47,24 +52,12 @@ class MitelConsole {
             printLine(line, call: call)
         }
         
-        /// It's safe to use `!` now, because we've made sure it's not `nil` in the while loop above.
-        call!.callerID = glossary.callerID(for: call!)
-        
+        /// It's safe to use `!` here, because we've made sure it's not `nil` in the while loop above.
         return call!
-    }
-    
-    /// Determine`Rule` matches for dialed number and execute any actions necessary for a `Call`.
-    func handleCall(_ call: Call) {
-        rules.matching(call).forEach {
-            $0.performActions(forCall: call)
-        }
     }
     
     /// Print the incoming data in a user-friendly way.
     func printLine(_ line: String, call: Call?) {
-        if !line.trimmed.isEmpty {
-            let indicator = call != nil && !rules.matching(call!).isEmpty ? "🛎️" : "➜"
-            print("\(indicator) \(line.trimmed)")
-        }
+        print(line.trimmed, " ", "")
     }
 }

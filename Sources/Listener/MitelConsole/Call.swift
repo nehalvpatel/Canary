@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Combine
 import RegularExpressionDecoder
 
+typealias CallPublisher = PassthroughSubject<Call, Error>
 typealias CallDecoder = RegularExpressionDecoder<Call>
 typealias CallPattern = RegularExpressionPattern<Call, Call.CodingKeys>
 

@@ -5,6 +5,11 @@ import PackageDescription
 
 let package = Package(
     name: "Listener",
+    platforms: [
+        // specify each minimum deployment requirement,
+        //otherwise the platform default minimum is used.
+       .macOS(.v10_15),
+    ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
