@@ -44,10 +44,10 @@ class MitelConsole {
         while call == nil {
             let line = try port.readLine()
             call = try? callDecoder.decode(Call.self, from: line)
-            printLine(line, call: call)
+            printLine(line, optionalCall: call)
         }
         
-        /// It's safe to use `!` now, because we've made sure it's not `nil` in the while loop above.
+        /// It's safe to use `!` now, because we've made sure `call` is not `nil` in the while loop above.
         call!.callerID = glossary.callerID(for: call!)
         
         return call!
@@ -61,10 +61,15 @@ class MitelConsole {
     }
     
     /// Print the incoming data in a user-friendly way.
-    func printLine(_ line: String, call: Call?) {
-        if !line.trimmed.isEmpty {
-            let indicator = call != nil && !rules.matching(call!).isEmpty ? "🛎️" : "➜"
-            print("\(indicator) \(line.trimmed)")
+    func printLine(_ line: String, optionalCall: Call?) {
+        guard line.trimmed.isNotEmpty else {
+            return
+        }
+
+        if let call = optionalCall, rules.matching(call).isNotEmpty {
+            print("🛎️ \(line.trimmed)")
+        } else {
+            print("➜ \(line.trimmed)")
         }
     }
 }

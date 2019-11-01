@@ -53,9 +53,9 @@ extension Call {
     ///
     /// - Parameter year: A year to append to the date, because the call log does not include it.
     /// - Returns: A new `Date`.
-    func initiatedAt(year: Year) -> Date {
+    func initiatedAt(year: Year) -> Date? {
         let components = DateComponents(year: year.integerValue, month: initiatedMonth, day: initiatedDay, hour: initiatedHour, minute: initiatedMinute, second: 0)
-        return Calendar.current.date(from: components)!
+        return Calendar.current.date(from: components)
     }
 
     /// Returns a `CallDecoder` used to parse call logs.

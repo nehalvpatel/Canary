@@ -13,3 +13,10 @@ extension String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
+
+extension Collection {
+    /// A `Boolean` value indicating whether the collection has values.
+    var isNotEmpty: Bool {
+        return !self.isEmpty
+    }
+}
