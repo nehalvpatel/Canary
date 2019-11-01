@@ -52,10 +52,14 @@ class MitelConsole {
             printLine(line, call: call)
         }
         
+        call!.callerID = glossary.callerID(for: call!)
+        
         return call!
     }
     
     func handleCall(_ call: Call) {
-        rules.matching(call).forEach { $0.performActions(forCall: call, glossary: glossary) }
+        rules.matching(call).forEach {
+            $0.performActions(forCall: call)
+        }
     }
 }

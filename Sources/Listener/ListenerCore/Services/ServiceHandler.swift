@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ServiceHandler {
-    static func execute(_ action: Rule.Action, call: Call, caller: String, completionHandler: @escaping (Result<Any, Error>) -> ()) -> Void
+    static func execute(_ action: Rule.Action, for call: Call) -> Void
 }

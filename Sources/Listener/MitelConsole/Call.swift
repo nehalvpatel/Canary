@@ -13,6 +13,7 @@ typealias CallDecoder = RegularExpressionDecoder<Call>
 typealias CallPattern = RegularExpressionPattern<Call, Call.CodingKeys>
 
 struct Call : Codable {
+    var callerID: String = ""
     let callingNumber: String
     let accessCode: Int
     let dialedNumber: PhoneNumber

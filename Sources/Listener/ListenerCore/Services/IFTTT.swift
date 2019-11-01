@@ -19,11 +19,11 @@ struct IFTTT: ServiceHandler {
         /// Not used yet.
         let value3: String
     }
-
-    static func execute(_ action: Rule.Action, call: Call, caller: String, completionHandler: @escaping (Result<Any, Error>) -> ()) {
+    
+    static func execute(_ action: Rule.Action, for call: Call) {
         do {
             let webhookURL = URL(string: "https://maker.ifttt.com/trigger/\(action.event)/with/key/\(action.key)")!
-            let webhookBody = WebhookBody(value1: caller, value2: call.dialedNumber, value3: "")
+            let webhookBody = WebhookBody(value1: call.callerID, value2: call.dialedNumber, value3: "")
             var webhookRequest = URLRequest(url: webhookURL)
             webhookRequest.httpMethod = "POST"
             webhookRequest.httpBody = try JSONEncoder().encode(webhookBody)
@@ -31,16 +31,14 @@ struct IFTTT: ServiceHandler {
             
             let task = URLSession.shared.dataTask(with: webhookRequest) { data, response, error in
                 guard data != nil, error == nil else {
-                    completionHandler(.failure(error!))
+                    Listener.handleError(error!)
                     return
                 }
-                
-                completionHandler(.success(()))
             }
             
             task.resume()
         } catch let error {
-            completionHandler(.failure(error))
+            Listener.handleError(error)
         }
     }
 }

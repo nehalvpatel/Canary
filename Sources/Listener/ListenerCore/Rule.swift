@@ -34,14 +34,10 @@ extension Rule {
     /// Perform all actions associated with the trigger number.
     ///
     /// - Parameter call: The Call instance which activated the trigger.
-    /// - Parameter glossary: A Glossary instance with information relevant to this Call.
-    func performActions(forCall call: Call, glossary: Config.Glossary) {
+    func performActions(forCall call: Call) {
         self.actions.forEach { action in
             switch action.service {
-                case .IFTTT:
-                    IFTTT.execute(action, call: call, caller: glossary.callerID(for: call)) { result in
-                        if case .failure(let error) = result { Listener.handleError(error) }
-                    }
+            case .IFTTT: IFTTT.execute(action, for: call)
             }
         }
     }
