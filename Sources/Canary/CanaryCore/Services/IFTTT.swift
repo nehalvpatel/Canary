@@ -1,6 +1,6 @@
 //
 //  IFTTT.swift
-//  Listener
+//  Canary
 //
 //  Created by Nehal Patel on 10/24/19.
 //
@@ -33,14 +33,14 @@ struct IFTTT: ServiceHandler {
             
             let task = URLSession.shared.dataTask(with: webhookRequest) { data, response, error in
                 guard data != nil, error == nil else {
-                    Listener.handleError(error!)
+                    Canary.handleError(error!)
                     return
                 }
             }
             
             task.resume()
         } catch let error {
-            Listener.handleError(error)
+            Canary.handleError(error)
         }
     }
 }

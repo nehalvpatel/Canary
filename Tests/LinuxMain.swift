@@ -1,7 +1,7 @@
 import XCTest
 
-import ListenerTests
+import CanaryTests
 
 var tests = [XCTestCaseEntry]()
-tests += ListenerTests.allTests()
+tests += CanaryTests.allTests()
 XCTMain(tests)

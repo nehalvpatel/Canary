@@ -4,13 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "Listener",
+    name: "Canary",
     platforms: [
         .macOS(.v10_13),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/yeokm1/SwiftSerial.git", from: "0.1.1"),
         .package(url: "https://github.com/Flight-School/RegularExpressionDecoder.git", from: "0.1.0"),
         .package(url: "https://github.com/kylef/Commander.git", from: "0.9.1"),
@@ -19,11 +18,11 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "Listener",
+            name: "Canary",
             dependencies: ["Commander", "RegularExpressionDecoder", "SwiftSerial"]),
         .testTarget(
-            name: "ListenerTests",
-            dependencies: ["Listener"]),
+            name: "CanaryTests",
+            dependencies: ["Canary"]),
     ]
 )
 

@@ -1,6 +1,6 @@
 //
 //  Config.swift
-//  Listener
+//  Canary
 //
 //  Created by Nehal Patel on 10/24/19.
 //

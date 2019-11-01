@@ -1,6 +1,6 @@
 //
-//  Listener.swift
-//  Listener
+//  Canary.swift
+//  Canary
 //
 //  Created by Nehal Patel on 10/25/19.
 //
@@ -10,7 +10,7 @@ import Commander
 import SwiftSerial
 import RegularExpressionDecoder
 
-struct Listener {
+struct Canary {
 
     /// Parse the command-line arguments for the configuration file's location.
     ///
