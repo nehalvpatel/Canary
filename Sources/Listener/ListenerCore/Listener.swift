@@ -12,12 +12,18 @@ import RegularExpressionDecoder
 
 struct Listener {
 
-    static func parseArguments(handler: @escaping (String) -> ()) {
+    /// Parse the command-line arguments for the configuration file's location.
+    ///
+    /// - Parameter completionHandler: A closure which is called with the configuration file's location.
+    static func parseArguments(completionHandler: @escaping (String) -> ()) {
         let configFileOption = Option<String>("config-file", default: "config.json", description: "The configuration file.")
-        let commandPrompt = command(configFileOption, handler)
+        let commandPrompt = command(configFileOption, completionHandler)
         commandPrompt.run()
     }
     
+    /// Establish a MitelConsole connection based off a configuration file.
+    ///
+    /// - Parameter withConfigFrom: The configuration file's path.
     static func makeConnection(withConfigFrom configFilePath: String) throws -> MitelConsole {
         let configFileURL = URL(fileURLWithPath: configFilePath)
         let configFile: FileHandle = try FileHandle(forReadingFrom: configFileURL)
@@ -28,6 +34,9 @@ struct Listener {
         return try MitelConsole(config)
     }
     
+    /// Starts parsing incoming call logs.
+    ///
+    /// - Parameter with: A MitelConsole instance to listen with.
     static func startListening(with connection: MitelConsole) throws {
         /// Ensures that the connection will be closed and the port is released.
         defer {
@@ -40,6 +49,9 @@ struct Listener {
         try connection.listen()
     }
     
+    /// Pretty-prints user friendly errors.
+    ///
+    /// - Parameter error: An error that was caught.
     static func handleError(_ error: Error) {
         switch error {
             case PortError.failedToOpen:

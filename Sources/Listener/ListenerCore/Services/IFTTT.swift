@@ -11,7 +11,7 @@ import FoundationNetworking
 #endif
 
 struct IFTTT: ServiceHandler {
-    struct Values : Codable {
+    struct WebhookBody : Codable {
         /// The dialer's Caller ID.
         let value1: String
         /// The dialed phone number that caused the action to trigger.
@@ -19,29 +19,28 @@ struct IFTTT: ServiceHandler {
         /// Not used yet.
         let value3: String
     }
-    
-    static func execute(_ action: Rule.Action, call: Call, caller: String, finish: @escaping (Result<Any, Error>) -> ()) {
+
+    static func execute(_ action: Rule.Action, call: Call, caller: String, completionHandler: @escaping (Result<Any, Error>) -> ()) {
         do {
-            let values = Values(value1: caller, value2: call.dialedNumber, value3: "")
+            let webhookURL = URL(string: "https://maker.ifttt.com/trigger/\(action.event)/with/key/\(action.key)")!
+            let webhookBody = WebhookBody(value1: caller, value2: call.dialedNumber, value3: "")
+            var webhookRequest = URLRequest(url: webhookURL)
+            webhookRequest.httpMethod = "POST"
+            webhookRequest.httpBody = try JSONEncoder().encode(webhookBody)
+            webhookRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
             
-            let url = URL(string: "https://maker.ifttt.com/trigger/\(action.event)/with/key/\(action.key)")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.httpBody = try JSONEncoder().encode(values)
-            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let task = URLSession.shared.dataTask(with: webhookRequest) { data, response, error in
                 guard data != nil, error == nil else {
-                    finish(.failure(error!))
+                    completionHandler(.failure(error!))
                     return
                 }
                 
-                finish(.success(()))
+                completionHandler(.success(()))
             }
             
             task.resume()
         } catch let error {
-            finish(.failure(error))
+            completionHandler(.failure(error))
         }
     }
 }
