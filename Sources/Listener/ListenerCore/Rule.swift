@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias PhoneNumber = String
-
 struct Rule : Codable {
     struct Trigger : Codable {
         let phoneNumber: PhoneNumber
