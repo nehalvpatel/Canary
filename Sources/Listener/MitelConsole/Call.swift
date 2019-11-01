@@ -44,15 +44,23 @@ struct Call : Codable {
 }
 
 extension Call {
+    /// The duration of the call in seconds.
     var duration: TimeInterval {
         return Double(durationSeconds + (durationMinutes * 60) + (durationHours * 3600))
     }
     
+    /// Returns a `Date` representing the date and time the call was initiated.
+    ///
+    /// - Parameter year: A year to append to the date, because the call log does not include it.
+    /// - Returns: A new `Date`.
     func initiatedAt(year: Year) -> Date {
-        let components = DateComponents(year: year.value(), month: initiatedMonth, day: initiatedDay, hour: initiatedHour, minute: initiatedMinute, second: 0)
+        let components = DateComponents(year: year.integerValue, month: initiatedMonth, day: initiatedDay, hour: initiatedHour, minute: initiatedMinute, second: 0)
         return Calendar.current.date(from: components)!
     }
 
+    /// Returns a `CallDecoder` used to parse call logs.
+    ///
+    /// - Returns: A new `CallDecoder`.
     static func makeDecoder() throws -> CallDecoder {
         let pattern: CallPattern = #"(?<\#(.initiatedMonth)>\d+)\/(?<\#(.initiatedDay)>\d+)(?:\s+)(?<\#(.initiatedHour)>\d+):(?<\#(.initiatedMinute)>\d+)(?:\s+)(?<\#(.durationHours)>\d+):(?<\#(.durationMinutes)>\d+):(?<\#(.durationSeconds)>\d+)(?:\s+)(?<\#(.callingNumber)>(?:ATT)?\d+)(?:\s+)(?:\*)?(?<\#(.accessCode)>\d+)(?:\s+)(?<\#(.dialedNumber)>\d+)(?:\s+)(?<\#(.trunk)>T\d+)"#
         return try CallDecoder(pattern: pattern)

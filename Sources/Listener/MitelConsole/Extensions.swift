@@ -8,9 +8,8 @@
 import Foundation
 
 extension String {
+    /// The `String` without whitespaces or newlines on either side.
     var trimmed: String {
-        get {
-            return self.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

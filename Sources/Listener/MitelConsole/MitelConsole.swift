@@ -29,6 +29,7 @@ class MitelConsole {
         print()
     }
     
+    /// Starts scanning incomring data for calls.
     func listen() throws {
         repeat {
             let call = try readCall()
@@ -36,13 +37,7 @@ class MitelConsole {
         } while true
     }
     
-    func printLine(_ line: String, call: Call?) {
-        if !line.trimmed.isEmpty {
-            let indicator = call != nil ? "🛎️" : "➜"
-            print("\(indicator) \(line.trimmed)")
-        }
-    }
-    
+    /// Reads incoming data and returns a `Call` when one is identified.
     func readCall() throws -> Call {
         var call: Call?
         
@@ -52,14 +47,24 @@ class MitelConsole {
             printLine(line, call: call)
         }
         
+        /// It's safe to use `!` now, because we've made sure it's not `nil` in the while loop above.
         call!.callerID = glossary.callerID(for: call!)
         
         return call!
     }
     
+    /// Determine`Rule` matches for dialed number and execute any actions necessary for a `Call`.
     func handleCall(_ call: Call) {
         rules.matching(call).forEach {
             $0.performActions(forCall: call)
+        }
+    }
+    
+    /// Print the incoming data in a user-friendly way.
+    func printLine(_ line: String, call: Call?) {
+        if !line.trimmed.isEmpty {
+            let indicator = call != nil && !rules.matching(call!).isEmpty ? "🛎️" : "➜"
+            print("\(indicator) \(line.trimmed)")
         }
     }
 }

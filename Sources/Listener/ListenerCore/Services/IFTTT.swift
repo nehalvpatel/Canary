@@ -6,7 +6,9 @@
 //
 
 import Foundation
+
 #if canImport(FoundationNetworking)
+/// Required for Linux support.
 import FoundationNetworking
 #endif
 

@@ -12,7 +12,8 @@ public enum Year {
     case current(Calendar)
     case custom(Int)
     
-    func value() -> Int {
+    /// The Int value of the year.
+    var integerValue: Int {
         switch self {
         case .current(let calendar):
             return calendar.component(.year, from: Date())
