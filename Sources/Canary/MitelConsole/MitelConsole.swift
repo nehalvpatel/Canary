@@ -13,13 +13,13 @@ import RegularExpressionDecoder
 class MitelConsole {
     let port: SerialPort
     let rules: [Rule]
-    let glossary: Config.Glossary
+    let phoneBook: Config.PhoneBook
     let callDecoder: CallDecoder
     
     init(_ config: Config) throws {
         self.port = SerialPort(path: config.portName)
         self.rules = config.rules
-        self.glossary = config.glossary
+        self.phoneBook = config.phoneBook
         self.callDecoder = try Call.makeDecoder()
         
         print("⌛ Attempting to open port: \(config.portName)")
@@ -39,18 +39,16 @@ class MitelConsole {
     
     /// Reads incoming data and returns a `Call` when one is identified.
     func readCall() throws -> Call {
-        var call: Call?
-        
-        while call == nil {
+        while true {
             let line = try port.readLine()
-            call = try? callDecoder.decode(Call.self, from: line)
-            printLine(line, optionalCall: call)
+            
+            if let call = try? callDecoder.decode(from: line, phoneBook: phoneBook) {
+                printLine(line, indicator: rules.matching(call).isNotEmpty ? "🛎️" : "➜")
+                return call
+            } else {
+                printLine(line, indicator: "➜")
+            }
         }
-        
-        /// It's safe to use `!` now, because we've made sure `call` is not `nil` in the while loop above.
-        call!.callerID = glossary.callerID(for: call!)
-        
-        return call!
     }
     
     /// Determine`Rule` matches for dialed number and execute any actions necessary for a `Call`.
@@ -61,15 +59,11 @@ class MitelConsole {
     }
     
     /// Print the incoming data in a user-friendly way.
-    func printLine(_ line: String, optionalCall: Call?) {
+    func printLine(_ line: String, indicator: Character) {
         guard line.trimmed.isNotEmpty else {
             return
         }
-
-        if let call = optionalCall, rules.matching(call).isNotEmpty {
-            print("🛎️ \(line.trimmed)")
-        } else {
-            print("➜ \(line.trimmed)")
-        }
+        
+        print("\(indicator) \(line.trimmed)")
     }
 }

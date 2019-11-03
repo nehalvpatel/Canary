@@ -14,13 +14,13 @@
             ]
         }
     ],
-    "glossary":{
-        "phoneBook":{
+    "phoneBook":{
+        "listings":{
             "199":"Lobby",
             "238":"Laundry",
             "ATT0":"Office"
         },
-        "unit":"Room"
+        "prefix":"Room"
     },
     "portName":"\/dev\/ttyUSB0"
 }

@@ -66,3 +66,15 @@ extension Call {
         return try CallDecoder(pattern: pattern)
     }
 }
+
+extension CallDecoder {
+    /// Returns a `Call` representing the input, with a Caller ID based off of a PhoneBook.
+    ///
+    /// - Parameter from: A call log line to parse.
+    /// - Parameter phoneBook: A `PhoneBook` to use for Caller ID matching.
+    func decode(from line: String, phoneBook: Config.PhoneBook) throws -> Call {
+        var call = try self.decode(Call.self, from: line)
+        call.callerID = phoneBook.callerID(for: call)
+        return call
+    }
+}
