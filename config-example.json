@@ -22,5 +22,5 @@
         },
         "prefix":"Room"
     },
-    "portName":"\/dev\/ttyUSB0"
+    "portName":"/dev/ttyUSB0"
 }
