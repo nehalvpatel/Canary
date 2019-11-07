@@ -8,7 +8,7 @@
             "actions":[
                 {
                     "service":"IFTTT",
-                    "key":"<insert Webhook API key>",
+                    "apiKey":"<insert Webhook API key>",
                     "event":"emergency_called"
                 }
             ]

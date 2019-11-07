@@ -11,7 +11,6 @@ import SwiftSerial
 import RegularExpressionDecoder
 
 struct Canary {
-
     /// Parse the command-line arguments for the configuration file's location.
     ///
     /// - Parameter completionHandler: A closure which is called with the configuration file's location.
@@ -23,30 +22,17 @@ struct Canary {
     
     /// Establish a MitelConsole connection based off a configuration file.
     ///
-    /// - Parameter withConfigFrom: The configuration file's path.
-    static func makeConnection(withConfigFrom configFilePath: String) throws -> MitelConsole {
+    /// - Parameter withConfigurationFrom: The configuration file's path.
+    static func makeConnection(withConfigurationFrom configFilePath: String) throws -> MitelConsole {
         let configFileURL = URL(fileURLWithPath: configFilePath)
         let configFile: FileHandle = try FileHandle(forReadingFrom: configFileURL)
         let configData = configFile.readDataToEndOfFile()
         configFile.closeFile()
         
-        let config = try JSONDecoder().decode(Config.self, from: configData)
-        return try MitelConsole(config)
-    }
-    
-    /// Starts parsing incoming call logs.
-    ///
-    /// - Parameter with: A MitelConsole instance to listen with.
-    static func startListening(with connection: MitelConsole) throws {
-        /// Ensures that the connection will be closed and the port is released.
-        defer {
-            connection.port.closePort()
-            print("🛑 Port closed.")
-        }
-
-        /// Starts a loop which will receive call logs. It only ends in case of an error.
-        /// It parses calls, applies rule predicates, and executes their actions.
-        try connection.listen()
+        let configuration = try JSONDecoder().decode(Configuration.self, from: configData)
+        let delegate = Listener(rules: configuration.rules)
+        
+        return try MitelConsole(configuration.portName, phoneBook: configuration.phoneBook, delegate: delegate)
     }
     
     /// Pretty-prints user friendly errors.

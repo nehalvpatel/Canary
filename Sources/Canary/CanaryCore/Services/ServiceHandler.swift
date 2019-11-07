@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ServiceHandler {
-    static func execute(_ action: Rule.Action, for call: Call) -> Void
+protocol CanaryServiceHandler {
+    static func execute(_ action: Canary.Rule.Action, for call: MitelConsole.Call) -> Void
 }

@@ -3,7 +3,6 @@
 //  Canary
 //
 //  Created by Nehal Patel on 10/24/19.
-//  Copyright © 2019 Nehal Patel. All rights reserved.
 //
 
 import Foundation
@@ -11,59 +10,45 @@ import SwiftSerial
 import RegularExpressionDecoder
 
 class MitelConsole {
+    let delegate: MitelConsoleDelegate
+    let portName: String
     let port: SerialPort
-    let rules: [Rule]
-    let phoneBook: Config.PhoneBook
+    let phoneBook: PhoneBook
     let callDecoder: CallDecoder
     
-    init(_ config: Config) throws {
-        self.port = SerialPort(path: config.portName)
-        self.rules = config.rules
-        self.phoneBook = config.phoneBook
+    init(_ portName: String, phoneBook: PhoneBook, delegate: MitelConsoleDelegate) throws {
+        self.portName = portName
+        self.phoneBook = phoneBook
+        self.delegate = delegate
+        self.port = SerialPort(path: portName)
         self.callDecoder = try Call.makeDecoder()
-        
-        print("⌛ Attempting to open port: \(config.portName).")
+    }
+    
+    /// Attempts to connect to the serial port.
+    func establishConnection() throws {
+        delegate.mitelConsoleDidAttemptConnection(self)
         try port.openPort(toReceive: true, andTransmit: false)
-        print("✅ Serial port \(config.portName) opened successfully.")
+        delegate.mitelConsoleDidEstablishConnection(self)
         port.setSettings(receiveRate: .baud1200, transmitRate: .baud1200, minimumBytesToRead: 1)
-        print()
     }
     
-    /// Starts scanning incomring data for calls.
-    func listen() throws {
-        repeat {
-            let call = try readCall()
-            handleCall(call)
-        } while true
-    }
-    
-    /// Reads incoming data and returns a `Call` when one is identified.
-    func readCall() throws -> Call {
+    /// Starts parsing incoming serial data to find calls.
+    func startListening() throws {
+        
+        /// Ensures that the connection will be closed and the port is released.
+        defer {
+            port.closePort()
+            delegate.mitelConsoleDidCloseConnection(self)
+        }
+
+        /// Starts a loop which will receive call logs. It only ends in case of an error.
         while true {
             let line = try port.readLine()
+            delegate.mitelConsole(self, didReadLine: line)
             
             if let call = try? callDecoder.decode(from: line, phoneBook: phoneBook) {
-                printLine(line, indicator: rules.matching(call).isNotEmpty ? "🛎️" : "➜")
-                return call
-            } else {
-                printLine(line, indicator: "➜")
+                delegate.mitelConsole(self, didReadCall: call)
             }
         }
-    }
-    
-    /// Determine`Rule` matches for dialed number and execute any actions necessary for a `Call`.
-    func handleCall(_ call: Call) {
-        rules.matching(call).forEach {
-            $0.performActions(forCall: call)
-        }
-    }
-    
-    /// Print the incoming data in a user-friendly way.
-    func printLine(_ line: String, indicator: Character) {
-        guard line.trimmed.isNotEmpty else {
-            return
-        }
-        
-        print("\(indicator) \(line.trimmed)")
     }
 }
