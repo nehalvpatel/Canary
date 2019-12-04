@@ -1,3 +1,3 @@
 # Canary
 
-A description of this package.
+A monitor for outgoing calls from MITEL phone systems.
